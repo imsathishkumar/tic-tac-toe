@@ -11,23 +11,24 @@ box.forEach((e) => {
 })
 
 function check() {
+
   let i = 0;
   if (
     box[i].innerText == box[i + 4].innerText &&
-    box[i].innerText == box[i + 8].innerText
+    box[i].innerText == box[i + 8].innerText && box[i].innerText!=""
   ) {
     return box[i].innerText;
   }
   if (
     box[i + 2].innerText == box[i + 4].innerText &&
-    box[i + 2].innerText == box[i + 6].innerText
+    box[i + 2].innerText == box[i + 6].innerText && box[i+2].innerText!=""
   ) {
     return box[i + 2].innerText;
   }
   for (i = 0; i < 3; i++) {
     if (
       box[i].innerText == box[i + 3].innerText &&
-      box[i].innerText == box[i + 6].innerText
+      box[i].innerText == box[i + 6].innerText && box[i].innerText!=""
     ) {
       return box[i].innerText;
     }
@@ -35,7 +36,7 @@ function check() {
   for (i = 0; i < 8; i = i + 3) {
     if (
       box[i].innerText == box[i + 1].innerText &&
-      box[i].innerText == box[i + 2].innerText
+      box[i].innerText == box[i + 2].innerText && box[i].innerText!=""
     ) {
       return box[i].innerText;
     }
@@ -45,7 +46,7 @@ function check() {
 
 function myFunction(event){
         nextPlayer = (currentPlayer=="X") ? "O":"X";
-        document.getElementById("result").innerText ="play mr."+ nextPlayer ;
+        document.getElementById("result").innerText ="Play Mr."+ nextPlayer ;
         let isEmpty = event.target.innerText;
         if (isEmpty != "X" && isEmpty != "O") {
           event.target.innerHTML = `<p class="x"> ${currentPlayer}</p>`;
@@ -53,7 +54,7 @@ function myFunction(event){
         }
         let win = check();
         if(win=="X" || win =="O"){
-            document.getElementById("result").innerText ="Winner is : "+ win;
+            document.getElementById("result").innerText ="Winner Is : "+ win;
             box.forEach(e=>{
                 e.removeEventListener('click',myFunction,false);
             })
@@ -62,8 +63,8 @@ function myFunction(event){
 
 }
 function restart(){
-  nextPlayer = (currentPlayer=="X") ? "O":"X";
-  document.getElementById("result").innerText ="play mr."+ nextPlayer ;
+  nextPlayer = (currentPlayer=="O") ? "O":"X";
+  document.getElementById("result").innerText ="Play Mr."+ nextPlayer ;
   box.forEach( e => {
     e.innerText = null;
     e.addEventListener("click", myFunction);
