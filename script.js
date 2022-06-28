@@ -1,4 +1,4 @@
-// all fine
+// all fine 123
 var box = document.querySelectorAll(".column");
 var reset = document.getElementById("reset")
 let currentPlayer = "X";
